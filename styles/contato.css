@@ -1,0 +1,61 @@
+.contato {
+    background-color: var(--branco);
+    padding: 1em;
+}
+.contato__titulo {
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 1em;
+}
+.contato__texto {
+    background: var(--azul-degrade);
+    -webkit-background-clip: text; /*para funcionar em todos os nav o degrade*/
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /*necessario para preencher o texto com um*/
+    font-weight: 300;
+    padding: 0 1em 1em 1em;
+}
+.contato__email {
+    color: var(--azul);
+    border-radius: 24px;
+    padding: 0.7em;
+    width: 85%;  
+    align-items: center;
+    margin: 0 0 2em 1em;
+}
+.contato__email::placeholder{
+    font-family: var(--fonte-principal); /*necessario colocar novamente, pois o padrao nao entra em pseudo classes*/
+    font-weight: 400;
+    color: var(--azul);
+    padding: 3em;
+    background: url("../img/Email.svg") no-repeat; /*importando a carta*/
+    background-position: 1em; /*posicao da carta*/
+}
+
+@media screen and (min-width: 1024px) {
+    .contato{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contato__email {
+        width: 30%;
+    }
+    .contato__descricao {
+        margin-right: 1em;
+        width: 30%;
+    }
+    .contato__titulo {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .contato {
+        padding: 3em 15vw;
+    }
+}

@@ -1,0 +1,133 @@
+ .cabeçalho__menu-hambuguer {
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+ } 
+ .cabeçalho {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /*libera para usar outros atributos como left rigth e top e etc*/
+ }
+ .container {
+    display: flex;
+    align-items: center;
+ }
+.container__imagem {
+    padding: 1em;
+}
+.lista__menu {
+    display: none; /*esta lá porem invisivel*/
+    position: absolute; /*permite que movimente os elementos*/
+    top: 100%;
+    width: 60vw; /*como se fosse porcetagem de acordo com o tam da tela*/
+}
+.container__botao:checked ~ .lista__menu { /*o acento ~ é um combinador*/
+    display: block;
+}
+.lista-menu__titulo, .lista-menu__item { 
+    padding: 1em;
+    background-color: var(--branco);
+}
+.lista-menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+.lista-menu__link {
+    background: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /*usado apenas onde tem txt*/
+    text-transform: uppercase;
+}
+.container__botao {
+    display: none;
+}
+.container__titulo { /*titulo da alurabooks nao aparece quando tela mobile, so na media*/ 
+    display: none;
+}
+.opcoes { 
+    display: none;
+}
+.texto {
+    display: none;
+}
+.container__botao:checked ~ .container__rotulo > .cabeçalho__menu-hambuguer { /*sinal de > procura algo que esta dentro da class*/
+    background-image: url("../img/Menu\ Aberto.svg");
+}
+.container__botao:checked ~ .container__rotulo { /*~ é sinal de procurador de um class relacionada a outra*/
+    background: var(--azul-degrade);
+}
+.container__botao:checked ~ .container__rotulo > .opcoes__item {
+    background: var(--azul-degrade);
+}
+.lista-menu__item:hover {
+    background: var(--azul-degrade);
+}
+.lista-menu__item:hover > .lista-menu__link {
+    -webkit-text-fill-color: var(--branco); /*usar um degrade*/
+    text-decoration: none;
+}
+
+
+@media screen and (min-width: 1024px) { /*design para tablet que é tela de min de 1024px*/
+    .container__titulo, 
+    .container__titulo--negrito {
+        font-family: var(--fonte-secundario);
+        font-size: 30px;
+    }
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+    .opcoes { 
+        display: flex;
+    }
+    .opcoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+    .opcoes__link { 
+        text-decoration: none;
+        color: var(--preto);
+    }
+    .imagem__favoritos-coracao { /*imagem coracao/fav nao aparecer quando media 1024px*/
+        display: none;
+    }
+    .cabeçalho__menu-hambuguer {
+        display: none;
+    }
+    .opcoes__botao:checked ~ .lista__menu {
+        display: block;
+        width: auto;
+    }
+    .opcoes__botao {
+        display: none; /*para nao aparecer o checkbox*/
+    }
+    .opcoes__botao:checked ~ .opcoes__rotulo > .opcoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+    .cabeçalho {
+        padding: 0 2em;
+    }
+    .opcoes {
+        margin-right: auto;
+    }
+}
